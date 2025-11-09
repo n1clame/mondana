@@ -1,0 +1,582 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-[#0b0b0c] text-white; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, #6d28d9, #5b21b6, #4c1d95, #6d28d9);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+.hover-glow { transition: text-shadow .25s ease, transform .25s ease; }
+.hover-glow:hover { text-shadow: 0 0 12px rgba(109,40,217,.55), 0 0 24px rgba(109,40,217,.35); transform: translateY(-1px); }
+
+.neon-surface { position: relative; overflow: hidden; border-radius: 1rem; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+.neon-surface::before { content: ""; position: absolute; inset: -2px; background:
+  radial-gradient(1000px 200px at -10% -10%, rgba(109,40,217,.22), transparent 60%),
+  radial-gradient(1000px 200px at 110% 110%, rgba(109,40,217,.18), transparent 60%);
+  filter: blur(24px); z-index: -1; }
+
+.blob{display:none !important;}
+@keyframes float{0%,100%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(-20px) translateX(10px) scale(1.08)}}
+
+.shrimp-pattern { position: relative; }
+.shrimp-pattern::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: none, none, none, none;
+  background-repeat: no-repeat;
+  background-size: 160px 160px, 200px 200px, 180px 180px, 220px 220px;
+  background-position: 8% 18%, 85% 28%, 18% 82%, 75% 75%;
+  opacity: .06; filter: saturate(120%);
+}
+
+.faq-trigger { font-weight: 700; letter-spacing: .2px; transition: all .25s ease; }
+.faq-trigger:hover { color: #fff; text-shadow: 0 0 10px rgba(239,35,60,.9), 0 0 22px rgba(217,4,41,.7); background: rgba(255,255,255,.08); }
+.neon-link { position: relative; transition: color .2s ease, text-shadow .2s ease; }
+.neon-link:hover { color: #fff; text-shadow: 0 0 10px rgba(239,35,60,.9), 0 0 20px rgba(217,4,41,.5); }
+
+
+/* Letter spread + neon glow on hover */
+.spread-hover { letter-spacing: 0; transition: letter-spacing .35s cubic-bezier(.2,.7,.2,1), text-shadow .35s, transform .35s; }
+.spread-hover:hover {
+  letter-spacing: .15em;
+  text-shadow: 0 0 10px rgba(176,138,122,.55), 0 0 22px rgba(176,138,122,.35);
+  transform: translateY(-1px);
+}
+
+/* Neon outline for buttons/frames */
+.neon-outline { border-color: rgba(239,35,60,.55) !important; box-shadow: 0 0 12px rgba(109,40,217,.30), inset 0 0 8px rgba(217,4,41,.35); }
+
+/* Gradient red headline sweep */
+.gradient-red-text {
+  background: linear-gradient(90deg, #4c1d95 0%, #6d28d9 50%, #5b21b6 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-scan 6s linear infinite;
+}
+@keyframes gradient-scan { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+/* Per-letter neon hover utility */
+.per-letter span { display: inline-block; transition: transform .35s, text-shadow .35s; }
+.per-letter:hover span { transform: translateY(-2px); text-shadow: 0 0 8px rgba(109,40,217,.6); }
+/* —— NAV accent: тёмно-красный неон + анимация разлёта букв —— */
+.nav-accent {
+  color: #b08a7a;
+  text-shadow:
+    0 0 6px rgba(176,138,122,0.55),
+    0 0 12px rgba(176,138,122,0.35);
+  transition: text-shadow .25s ease, transform .25s ease, color .25s ease;
+}
+
+.nav-accent:hover {
+  letter-spacing: .08em;
+  color: #b08a7a;
+  text-shadow:
+    0 0 8px rgba(176,138,122,0.75),
+    0 0 18px rgba(176,138,122,0.55),
+    0 0 28px rgba(176,138,122,0.35);
+}
+
+
+
+/* === Mondana theme overrides === */
+:root{
+  --mondana-purple:#6d28d9;
+  --mondana-brown:#3b2f2f;
+  --mondana-brown-2:#5a4640;
+}
+html, body { background:#14100f !important; color:#6d28d9 !important; }
+a, a:visited { color:#6d28d9 !important; }
+header, footer, .navbar { background: var(--mondana-brown) !important; color:#6d28d9 !important; }
+.card, .panel, .section { background: var(--mondana-brown-2) !important; color:#6d28d9 !important; }
+h1,h2,h3,h4,h5,h6,p,li,span,label,strong,em { color:#6d28d9 !important; }
+button, .btn, .button { background:#6d28d9 !important; color:#fff !important; border-color:#5b21b6 !important; }
+
+
+
+/* === Custom additions for Mondana request === */
+
+/* 1) Rainbow gradient animated text */
+.rainbow-text {
+  background: linear-gradient(90deg, #6d28d9, #a855f7, #ec4899, #f59e0b, #22c55e, #06b6d4, #6d28d9);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 6s linear infinite;
+}
+@keyframes rainbowShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+/* 2) FAQ tabs transparent; on hover text to light purple */
+.faq-tab {
+  background: transparent !important;
+  border: 1px solid rgba(109,40,217,0.25) !important;
+}
+.faq-tab:hover {
+  color: #a78bfa !important; /* light violet */
+  background: rgba(109,40,217,0.04) !important;
+}
+
+/* 3) Soft purple hover for any animated text (global) */
+a:hover, .hover-glow:hover, .neon-link:hover { color: #a78bfa !important; }
+
+
+/* === Fixes per request === */
+
+/* Hero headings */
+.brown-heading { color: #5a4640 !important; }
+.violet-heading { color: #6d28d9 !important; }
+
+/* Top nav & tabs hover should be brown, not red */
+.nav-accent:hover,
+.neon-link:hover,
+a:hover {
+  color: #b08a7a !important;                 /* warm brown highlight */
+  text-shadow:
+    0 0 8px rgba(176,138,122,0.75),
+    0 0 18px rgba(176,138,122,0.45),
+    0 0 28px rgba(176,138,122,0.25) !important;
+}
+
+/* Remove red palette from previous shimmer (keep neutral) */
+.shimmer-text {
+  background: linear-gradient(90deg, #6d28d9, #5b21b6, #6d28d9);
+  background-size: 300% 100%;
+}
+
+/* FAQ: transparent tabs/items, brown hover text */
+.faq-trigger {
+  background: transparent !important;
+  color: #e7e0da !important;
+  border: 1px solid rgba(90,70,64,0.25) !important;
+  padding: .9rem 1rem;
+  border-radius: 1rem;
+}
+.faq-trigger:hover {
+  color: #b08a7a !important;                   /* brown text highlight */
+  background: rgba(90,70,64,0.06) !important;  /* light brown wash */
+  text-shadow:
+    0 0 8px rgba(176,138,122,0.55),
+    0 0 14px rgba(176,138,122,0.35) !important;
+}
+
+/* Remove purple fill in Accordion content wrapper if any */
+[data-state] .accordion-content,
+.accordion-content,
+.accordion-item {
+  background: transparent !important;
+}
+
+
+
+/* Clean text glows without background fill */
+.glow-brown { 
+  color: #5a4640 !important;
+  text-shadow:
+    0 0 6px rgba(176,138,122,0.45),
+    0 0 12px rgba(176,138,122,0.25) !important;
+}
+.glow-violet {
+  color: #6d28d9 !important;
+  text-shadow:
+    0 0 6px rgba(109,40,217,0.45),
+    0 0 12px rgba(109,40,217,0.25) !important;
+}
+
+
+/* === Brown glow for buttons and step cards === */
+button, .btn, .button, .neon-outline {
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+button:hover, .btn:hover, .button:hover, .neon-outline:hover {
+  box-shadow:
+    0 0 8px rgba(176,138,122,0.45),
+    0 0 16px rgba(176,138,122,0.25);
+  border-color: rgba(176,138,122,0.55) !important;
+}
+
+.step-card:hover .card,
+.step-card:hover,
+.step-card:hover .neon-surface,
+.step-card:hover .shadcn-card {
+  box-shadow:
+    0 0 10px rgba(176,138,122,0.35),
+    0 0 20px rgba(176,138,122,0.20);
+}
+
+/* === Rainbow snake hover for text === */
+.rainbow-snake-hover:hover {
+  background-image: repeating-linear-gradient(135deg,
+    #ff7a7a 0 8px, #ffa64d 8px 16px, #ffe955 16px 24px, #6df089 24px 32px,
+    #5ee7ff 32px 40px, #8a7aff 40px 48px, #ff7ae1 48px 56px);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: snakeShift 2.8s linear infinite;
+  text-shadow: none !important;
+}
+@keyframes snakeShift {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+
+/* === Background decorative blobs (random-like positions) === */
+body::before{content:none!important;}
+
+/* === Always-on rainbow snake animation for text === */
+.rainbow-snake{
+  background-image: repeating-linear-gradient(135deg,
+    #ff7a7a 0 8px, #ffa64d 8px 16px, #ffe955 16px 24px, #6df089 24px 32px,
+    #5ee7ff 32px 40px, #8a7aff 40px 48px, #ff7ae1 48px 56px);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: snakeShift 2.8s linear infinite;
+}
+@keyframes snakeShift {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* === Brown hover glow overrides (no red) === */
+.hover-glow:hover, .nav-accent:hover, .neon-link:hover {
+  color: #b08a7a !important;
+  text-shadow:
+    0 0 8px rgba(176,138,122,0.55),
+    0 0 18px rgba(176,138,122,0.35) !important;
+}
+
+/* Buttons brown glow */
+button:hover, .btn:hover, .button:hover, .neon-outline:hover {
+  box-shadow:
+    0 0 8px rgba(176,138,122,0.45),
+    0 0 16px rgba(176,138,122,0.25);
+  border-color: rgba(176,138,122,0.55) !important;
+}
+
+/* Step cards subtle brown glow on hover */
+.step-card:hover {
+  box-shadow:
+    0 0 10px rgba(176,138,122,0.30),
+    0 0 18px rgba(176,138,122,0.18);
+}
+
+/* Brown title color */
+.title-brown { color: #b08a7a !important; }
+
+/* FAQ triggers: reduce white glare, keep subtle brown on hover */
+.faq-trigger { background: transparent !important; color: #e2dbd6 !important; }
+.faq-trigger:hover {
+  color: #b08a7a !important;
+  background: rgba(90,70,64,0.04) !important;
+  text-shadow: none !important;
+}
+
+
+
+/* === Force remove any decorative arrows from elements using spread-hover (if any) === */
+.spread-hover::before,
+.spread-hover::after {
+  content: none !important;
+}
+
+/* === Brown hover for primary hero buttons (override any red) === */
+.neon-outline:hover,
+button:hover {
+  box-shadow:
+    0 0 10px rgba(176,138,122,0.45),
+    0 0 22px rgba(176,138,122,0.25) !important;
+  filter: none !important;
+  color: #fff !important;
+  border-color: rgba(176,138,122,0.55) !important;
+}
+
+/* Kill any red text glows globally */
+.hover-glow:hover { 
+  text-shadow:
+    0 0 8px rgba(176,138,122,0.55),
+    0 0 18px rgba(176,138,122,0.35) !important;
+  color: #b08a7a !important;
+}
+
+/* Step cards: dim brown glow on hover */
+.step-card:hover {
+  box-shadow:
+    0 0 10px rgba(176,138,122,0.25),
+    0 0 18px rgba(176,138,122,0.18) !important;
+}
+
+/* FAQ: reduce white glare on hover */
+.faq-trigger:hover {
+  color: #b08a7a !important;
+  background: rgba(90,70,64,0.05) !important;
+  text-shadow: none !important;
+}
+
+/* === Site background: brown base + scattered avatar images === */
+html, body { background-color: #14100f !important; }
+
+
+/* body::after removed in favor of BackgroundAvatars component */
+
+
+
+
+/* === Stronger scattered avatar background === */
+html, body { background-color: #14100f !important; position: relative; }
+
+/* body::after removed in favor of BackgroundAvatars component */
+
+
+/* Ensure all content sits above background */
+#root, main, header, footer, section, div { position: relative; z-index: 1; }
+
+/* === Make card hover soft purple, not red === */
+.neon-surface::before { content: ""; position: absolute; inset: -2px; background:
+  radial-gradient(1000px 200px at -10% -10%, rgba(109,40,217,.22), transparent 60%),
+  radial-gradient(1000px 200px at 110% 110%, rgba(109,40,217,.18), transparent 60%);
+  filter: blur(24px); z-index: -1; } /* kill old red sheen */
+.step-card:hover,
+.neon-surface:hover {
+  box-shadow:
+    0 0 10px rgba(109,40,217,0.28),
+    0 0 22px rgba(109,40,217,0.18) !important;
+  border-color: rgba(109,40,217,0.35) !important;
+}
+/* Headings inside cards */
+.title-brown { color: #b08a7a !important; }
+.step-card:hover .title-brown { color: #a78bfa !important; } /* soft violet on hover */
+
+/* Hero buttons hover = brown (reinforce override) */
+.neon-outline:hover, button:hover {
+  box-shadow:
+    0 0 10px rgba(176,138,122,0.45),
+    0 0 22px rgba(176,138,122,0.25) !important;
+}
+
+/* FAQ hover dimmer */
+.faq-trigger:hover {
+  color: #b08a7a !important;
+  background: rgba(109,40,217,0.06) !important; /* soft violet wash */
+  text-shadow: none !important;
+}
+
+
+
+/* === Background avatars (randomized each refresh) === */
+.bg-avatars-container{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.bg-avatar{
+  position: absolute;
+  object-fit: cover;
+  border-radius: 18px;         /* softer corners */
+  box-shadow:
+    0 0 14px rgba(109,40,217,0.22),
+    0 0 28px rgba(109,40,217,0.14);  /* soft violet glow */
+  filter: saturate(1) contrast(1);
+  animation-name: gentleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes gentleFloat{
+  from { transform: translateY(-6px) rotate(var(--rot, 0deg)); }
+  to   { transform: translateY(6px)  rotate(var(--rot, 0deg)); }
+}
+/* Ensure content is above avatars */
+main, header, footer, section, .neon-surface, .container, .page-root { position: relative; z-index: 1; }
+
+
+/* === Pulsing border for main hero image === */
+.pulse-border{ position: relative; isolation: isolate; }
+.pulse-border::before{
+  content:""; position:absolute; inset:-3px; border-radius:22px;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(109,40,217,.35), transparent 70%);
+  filter: blur(14px);
+  animation: pulseGlow 4s ease-in-out infinite;
+  pointer-events:none; z-index:-1;
+}
+@keyframes pulseGlow{
+  0%,100%{ opacity:.35; transform: scale(1); }
+  50%{ opacity:.55; transform: scale(1.04); }
+}
+
+/* === Background avatars: gentle XY float + rainbow glow === */
+.bg-avatars-container{ position:fixed; inset:0; z-index:0; pointer-events:none; }
+.bg-avatar{
+  position:absolute; object-fit:cover; border-radius:18px;
+  box-shadow:0 0 12px rgba(109,40,217,.18), 0 0 22px rgba(109,40,217,.12);
+  animation-name: gentleFloatXY; animation-timing-function:ease-in-out;
+  animation-iteration-count: infinite; animation-direction: alternate;
+  will-change: transform, opacity;
+}
+@keyframes gentleFloatXY{
+  from{ transform: translate(-4px, -6px) }
+  to{   transform: translate(4px, 6px) }
+}
+.rainbow-glow{ position:relative; }
+.rainbow-glow::after{
+  content:""; position:absolute; inset:-6px; border-radius:22px;
+  background: conic-gradient(from 0deg,
+    rgba(168,85,247,.18), rgba(236,72,153,.14),
+    rgba(245,158,11,.12), rgba(34,197,94,.12),
+    rgba(6,182,212,.14), rgba(109,40,217,.18));
+  filter: blur(16px);
+  animation: hueSweep 12s linear infinite;
+  z-index:-1;
+  pointer-events:none;
+}
+@keyframes hueSweep { to { transform: rotate(360deg); } }
+
+
+/* === Aurora perimeter glow for the hero image === */
+.aurora-border{ position: relative; isolation: isolate; }
+.aurora-border::before{
+  content:""; position:absolute; inset:-3px; border-radius:22px;
+  background: conic-gradient(from 0deg,
+     rgba(109,40,217,.00) 0deg,
+     rgba(109,40,217,.35) 120deg,
+     rgba(90,70,64,.28) 200deg,
+     rgba(109,40,217,.00) 360deg);
+  filter: blur(16px);
+  animation: auroraRotate 9s linear infinite;
+  pointer-events:none; z-index:-1;
+}
+@keyframes auroraRotate{ to { transform: rotate(360deg); } }
+
+
+
+/* === White neon glow for background avatars & draggable behavior === */
+.bg-avatars-container{ position:fixed; inset:0; z-index:0; pointer-events:none; }
+.bg-avatar{
+  position:absolute; object-fit:cover; border-radius:18px;
+  opacity:.14; transition: opacity .25s ease, box-shadow .25s ease, transform .25s ease;
+  animation-name: gentleFloatXY; animation-duration: 14s; animation-timing-function:ease-in-out;
+  animation-iteration-count: infinite; animation-direction: alternate;
+  pointer-events:auto;           /* allow dragging */
+  user-select:none;
+  cursor: grab;
+}
+.bg-avatar:active{ cursor: grabbing; }
+.white-neon{
+  box-shadow:
+    0 0 10px rgba(255,255,255,.22),
+    0 0 24px rgba(255,255,255,.14);
+}
+.bg-avatar:hover{
+  opacity:.22;
+  box-shadow:
+    0 0 14px rgba(255,255,255,.28),
+    0 0 32px rgba(255,255,255,.18);
+}
+@keyframes gentleFloatXY{
+  from{ transform: translate(-5px, -7px) }
+  to{   transform: translate(5px, 7px) }
+}
+
+
+/* --- Force transparent wrappers so background is visible --- */
+html, body { background-color: #14100f !important; }
+main, header, footer, section, .page-root, .container, .wrapper, .content, .shell {
+  background: transparent !important;
+}
+/* Ensure z-index layering */
+.bg-avatars-container{ position:fixed; inset:0; z-index:0; display:block !important; opacity:1 !important; }
+main, header, footer, section { position: relative; z-index: 1; }
+
+/* Fallback: body mosaic (shows even if component not mounted) */
+body::after{
+  content:""; position:fixed; inset:0; z-index: -1; pointer-events:none;
+  background:
+    url("/images/hero.jpg") 6% 12% / 110px no-repeat,
+    url("/images/chog2.jpg") 84% 10% / 120px no-repeat,
+    url("/images/hero.jpg") 18% 72% / 95px  no-repeat,
+    url("/images/chog2.jpg") 88% 68% / 130px no-repeat,
+    url("/images/hero.jpg") 42% 28% / 100px no-repeat,
+    url("/images/chog2.jpg") 66% 76% / 110px no-repeat;
+  opacity: .22;
+}
+
+
+
+/* === Mondana: ensure background is always visible === */
+html, body { background-color: #14100f !important; }
+main, header, footer, section, .page-root, .container, .wrapper, .content, .shell {
+  background: transparent !important;
+}
+
+/* layering */
+.bg-avatars-container{ position:fixed; inset:0; z-index:0; pointer-events:none; display:block !important; opacity:1 !important; }
+main, header, footer, section { position: relative; z-index: 1; }
+
+/* fallback mosaic (works even if component fails) */
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    url("/images/hero.jpg") 6% 12% / 110px no-repeat,
+    url("/images/chog2.jpg") 84% 10% / 120px no-repeat,
+    url("/images/hero.jpg") 18% 72% / 95px  no-repeat,
+    url("/images/chog2.jpg") 88% 68% / 130px no-repeat,
+    url("/images/hero.jpg") 42% 28% / 100px no-repeat,
+    url("/images/chog2.jpg") 66% 76% / 110px no-repeat;
+  opacity: .22;
+}
+
+/* tiles */
+.bg-avatar{
+  position:absolute; object-fit:cover; border-radius:18px;
+  transition: opacity .25s ease, box-shadow .25s ease, transform .25s ease;
+  animation-name: gentleFloatXY; animation-timing-function:ease-in-out;
+  animation-iteration-count: infinite; animation-direction: alternate;
+  pointer-events:auto; user-select:none; cursor: grab;
+}
+.bg-avatar:active{ cursor: grabbing; }
+.white-neon{
+  box-shadow: 0 0 10px rgba(255,255,255,.20), 0 0 24px rgba(255,255,255,.14);
+}
+.bg-avatar:hover{
+  opacity:.24;
+  box-shadow: 0 0 16px rgba(255,255,255,.28), 0 0 36px rgba(255,255,255,.18);
+}
+@keyframes gentleFloatXY{
+  from{ transform: translate(-5px,-7px) }
+  to  { transform: translate( 5px, 7px) }
+}
+
+
+
+/* Dual white+violet neon glow for background tiles */
+.white-violet-neon{
+  box-shadow:
+    0 0 10px rgba(255,255,255,.22),
+    0 0 22px rgba(255,255,255,.14),
+    0 0 16px rgba(109,40,217,.18),
+    0 0 34px rgba(109,40,217,.12);
+}
+.white-violet-neon:hover{
+  box-shadow:
+    0 0 14px rgba(255,255,255,.28),
+    0 0 30px rgba(255,255,255,.20),
+    0 0 20px rgba(109,40,217,.22),
+    0 0 42px rgba(109,40,217,.16);
+}
+

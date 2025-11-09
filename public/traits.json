@@ -1,0 +1,147 @@
+{
+  "order": [
+    "bg",
+    "glasses",
+    "headwear"
+  ],
+  "traits": {
+    "bg": [
+      {
+        "id": "1",
+        "name": "BG #1",
+        "file": "bg/1.png",
+        "rarity": 50
+      },
+      {
+        "id": "2",
+        "name": "BG #2",
+        "file": "bg/2.png",
+        "rarity": 50
+      },
+      {
+        "id": "3",
+        "name": "BG #3",
+        "file": "bg/3.png",
+        "rarity": 50
+      }
+    ],
+    "glasses": [
+      {
+        "id": "1",
+        "name": "Glasses #1",
+        "file": "glasses/1.png",
+        "rarity": 50,
+        "attachTo": "EYE_LINE",
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "offset": {
+          "dx": 0.0,
+          "dy": 0.02
+        },
+        "transform": {
+          "scale": 0.9,
+          "rotation": 0
+        }
+      },
+      {
+        "id": "2",
+        "name": "Glasses #2",
+        "file": "glasses/2.png",
+        "rarity": 50,
+        "attachTo": "EYE_LINE",
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "offset": {
+          "dx": 0.0,
+          "dy": 0.02
+        },
+        "transform": {
+          "scale": 0.9,
+          "rotation": 0
+        }
+      },
+      {
+        "id": "3",
+        "name": "Glasses #3",
+        "file": "glasses/3.png",
+        "rarity": 50,
+        "attachTo": "EYE_LINE",
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "offset": {
+          "dx": 0.0,
+          "dy": 0.02
+        },
+        "transform": {
+          "scale": 0.9,
+          "rotation": 0
+        }
+      }
+    ],
+    "headwear": [
+      {
+        "id": "1",
+        "name": "Hat #1",
+        "file": "headwear/1.png",
+        "rarity": 50,
+        "attachTo": "HEAD_TOP",
+        "pivot": {
+          "x": 0.5,
+          "y": 0.92
+        },
+        "offset": {
+          "dx": 0.0,
+          "dy": 0.08
+        },
+        "transform": {
+          "scale": 0.9,
+          "rotation": 0
+        }
+      },
+      {
+        "id": "2",
+        "name": "Hat #2",
+        "file": "headwear/2.png",
+        "rarity": 50,
+        "attachTo": "HEAD_TOP",
+        "pivot": {
+          "x": 0.5,
+          "y": 0.92
+        },
+        "offset": {
+          "dx": 0.0,
+          "dy": 0.08
+        },
+        "transform": {
+          "scale": 0.9,
+          "rotation": 0
+        }
+      },
+      {
+        "id": "3",
+        "name": "Hat #3",
+        "file": "headwear/3.png",
+        "rarity": 50,
+        "attachTo": "HEAD_TOP",
+        "pivot": {
+          "x": 0.5,
+          "y": 0.92
+        },
+        "offset": {
+          "dx": 0.0,
+          "dy": 0.08
+        },
+        "transform": {
+          "scale": 0.9,
+          "rotation": 0
+        }
+      }
+    ]
+  }
+}
